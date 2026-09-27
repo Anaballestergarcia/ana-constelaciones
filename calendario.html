@@ -4,13 +4,21 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Calendario de talleres | Ana Ballester · Constelaciones Familiares</title>
+<meta name="description" content="Próximos talleres de constelaciones familiares con Ana Ballester en Burjassot (Valencia). Plazas limitadas.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Calendario de talleres · Constelaciones Familiares">
+<meta property="og:description" content="Próximos talleres de constelaciones familiares con Ana Ballester en Burjassot (Valencia). Plazas limitadas.">
+<meta property="og:url" content="https://constelaciones.anaballestergarcia.com/calendario.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Calendario de talleres · Constelaciones Familiares">
+<meta name="twitter:description" content="Próximos talleres de constelaciones familiares con Ana Ballester en Burjassot (Valencia). Plazas limitadas.">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{--verde:#005B4C; --menta:#6FBA9F; --rosa:#C08A8B; --crema:#E9DDD5; --carbon:#595857; --hueso:#FBF6F1; --linea:#E3D5CB;}
   *{box-sizing:border-box;}
   body{font-family:'Jost',sans-serif; color:var(--carbon); background:var(--hueso); margin:0; line-height:1.6;}
   header{background:var(--crema); padding:22px 32px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;}
-  header a.back{font-size:0.9rem; color:var(--verde); text-decoration:none;}
+  header a.back{font-size:0.9rem; color:var(--verde); text-decoration:none; font-weight:500;}
   header .brand{font-family:'Cormorant Garamond',serif; font-style:italic; color:var(--verde); font-size:1.2rem;}
   .wrap{max-width:760px; margin:0 auto; padding:56px 32px 100px;}
   h1{font-family:'Cormorant Garamond',serif; color:var(--verde); font-size:2.1rem; font-weight:600; margin-bottom:10px;}
@@ -22,36 +30,44 @@
   /* ============================================================
      PARA AÑADIR UN NUEVO TALLER:
      1. Copia un bloque <div class="date-row">...</div> completo.
-     2. Pégalo dentro del <div class="dates-list"> del mes correspondiente
-        (crea un nuevo <div class="mes-block"> si es un mes nuevo).
-     3. Cambia solo: el día (dia), el mes (mes), el horario y el enlace de WhatsApp si hace falta.
-     4. Para quitar un taller ya pasado, borra su bloque <div class="date-row">.
+     2. Pégalo dentro del <div class="dates-list"> de "Próximas fechas".
+     3. Cambia solo: el día (dia), el mes (mes), el horario y el enlace
+        de reserva si hace falta.
+     3b. La etiqueta <span class="modalidad">PRESENCIAL</span> indica si es
+        presencial u online. Para una sesión online, cambia el texto a
+        "ONLINE" y añade la clase: <span class="modalidad online">ONLINE</span>.
+     4. Cuando la fecha ya haya pasado, NO la borres: muévela al bloque
+        "Talleres ya realizados" de más abajo y añádele la clase "pasado"
+        (copia un date-row de esa sección como plantilla, ya está listo).
      No hace falta tocar nada más de esta página ni de la web principal.
      ============================================================ */
   .dates-list{display:flex; flex-direction:column; gap:16px;}
   .date-row{display:flex; align-items:center; gap:22px; background:#fff; border:1px solid var(--linea); border-radius:16px; padding:22px 26px; flex-wrap:wrap;}
-  .date-badge{background:var(--crema); border-radius:12px; padding:14px 18px; text-align:center; min-width:78px;}
-  .date-badge strong{display:block; font-family:'Cormorant Garamond',serif; font-size:1.8rem; color:var(--verde); line-height:1;}
-  .date-badge span{font-size:0.72rem; letter-spacing:0.06em; color:var(--rosa);}
-  .date-info{flex:1; min-width:180px;}
+  .date-badge{
+    background:linear-gradient(160deg, var(--verde), var(--rosa));
+    border-radius:12px; padding:14px 18px; text-align:center; min-width:90px;
+  }
+  .date-badge strong{display:block; font-family:'Cormorant Garamond',serif; font-size:1.55rem; color:#fff; line-height:1.1;}
+  .date-badge span{font-size:0.7rem; letter-spacing:0.06em; color:rgba(255,255,255,0.9);}
+  .date-info{flex:1; min-width:200px;}
+  .modalidad{display:inline-block; background:#DCEEE7; color:var(--verde); font-size:0.68rem; font-weight:600; letter-spacing:0.06em; padding:4px 12px; border-radius:100px; margin-bottom:8px;}
+  .modalidad.online{background:var(--crema); color:var(--rosa);}
   .date-info strong{display:block; color:var(--verde); font-size:1.05rem; margin-bottom:4px;}
-  .date-info span{font-size:0.9rem; color:#4a4948;}
+  .date-info span{font-size:0.9rem; color:#4a4948; display:block;}
+  .date-info .linea2{margin-top:2px;}
   .btn{display:inline-block; padding:11px 22px; border-radius:100px; background:var(--verde); color:#fff; font-size:0.88rem; text-decoration:none; white-space:nowrap; border:1px solid var(--verde);}
   .btn:hover{opacity:0.88;}
   .btn-outline{background:transparent; color:var(--verde);}
   .btn-outline:hover{background:var(--verde); color:#fff; opacity:1;}
 
-  .proximamente{
-    display:flex; align-items:center; gap:22px; background:repeating-linear-gradient(135deg, #fff, #fff 12px, var(--crema) 12px, var(--crema) 24px);
-    border:1px dashed var(--rosa); border-radius:16px; padding:22px 26px; flex-wrap:wrap;
-  }
-  .proximamente .date-badge{background:#fff; border:1px solid var(--linea);}
-  .proximamente .date-badge strong{font-size:1.1rem;}
-  .proximamente .date-info strong{color:var(--verde);}
-  .proximamente .date-info span{color:#4a4948;}
+  /* Fechas ya pasadas: mismo layout, en tono apagado, con etiqueta de estado */
+  .date-row.pasado{background:#f2ede7; border-color:var(--linea);}
+  .date-row.pasado .date-badge{filter:grayscale(55%); opacity:0.72;}
+  .date-row.pasado .date-info strong{color:#6b6a68;}
+  .estado-pasado{display:inline-flex; align-items:center; gap:6px; background:#e7ddd2; color:#726f6a; font-size:0.76rem; letter-spacing:0.05em; padding:7px 16px; border-radius:100px; white-space:nowrap; font-weight:500;}
 
   .lead-magnet{
-    margin-top:52px; background:var(--verde); border-radius:20px; padding:36px 38px; color:#fff;
+    margin-top:8px; background:var(--verde); border-radius:20px; padding:36px 38px; color:#fff;
     display:flex; align-items:center; gap:28px; flex-wrap:wrap;
   }
   .lead-magnet .txt{flex:1; min-width:220px;}
@@ -60,69 +76,67 @@
   .lead-magnet p{font-size:0.92rem; color:rgba(255,255,255,0.85);}
   .lead-magnet .btn{background:#fff; color:var(--verde); border-color:#fff;}
 
-  .nota{margin-top:36px; font-size:0.86rem; color:#a79f95; font-style:italic;}
+  .nota-cta{display:flex; align-items:center; gap:22px; flex-wrap:wrap; margin:20px 0 52px;}
+  .nota{font-size:0.92rem; color:#605e5b; max-width:52ch; flex:1; min-width:220px;}
   footer{background:#0f2c26; color:rgba(255,255,255,0.7); text-align:center; padding:24px; font-size:0.85rem; margin-top:40px;}
   footer a{color:rgba(255,255,255,0.9);}
 </style>
 </head>
 <body>
 <header>
-  <a class="back" href="index.html">← Volver a la web</a>
+  <a class="back" href="https://constelaciones.anaballestergarcia.com/">&larr; Volver a la web</a>
   <span class="brand">Ana Ballester · Constelaciones</span>
 </header>
 <div class="wrap">
-  <h1>Próximos talleres</h1>
-  <p class="sub">Plazas limitadas para mantener el cuidado del grupo. Escríbeme por WhatsApp para reservar la tuya.</p>
+  <h1>Talleres de Constelaciones Familiares</h1>
+  <p class="sub">Encuentros grupales presenciales en Burjassot (Valencia) para mirar, desde otro lugar, aquello que se repite o pesa en tu vida y tu familia. Plazas limitadas para cuidar al grupo: reserva la tuya con antelación.</p>
 
   <div class="mes-block">
-    <div class="mes-title">Septiembre</div>
+    <div class="mes-title">Próximas fechas</div>
     <div class="dates-list">
 
       <div class="date-row">
-        <div class="date-badge"><strong>12</strong><span>SEPTIEMBRE</span></div>
+        <div class="date-badge"><strong>17</strong><span>OCTUBRE</span></div>
         <div class="date-info">
+          <span class="modalidad">PRESENCIAL</span>
           <strong>Taller de Constelaciones Familiares · Burjassot (Valencia)</strong>
-          <span>Sábado · De 10:00 a 14:00 h · Sala 101A, Edificio Algon, Avenida Enric Valor nº 3 (cerca de metro Empalme)</span>
+          <span>Sábado · De 10:00 a 14:00 h</span>
+          <span class="linea2">Sala 101A, Edificio Algon, Avenida Enric Valor nº 3, Burjassot · cerca de metro Empalme</span>
         </div>
-        <a class="btn" href="https://wa.me/34637557030?text=Hola%20Ana%2C%20quiero%20reservar%20plaza%20en%20el%20taller%20del%2012%20de%20septiembre.">Reservar plaza</a>
+        <a class="btn" href="reserva-taller.html" target="_blank" rel="noopener">Reservar plaza</a>
       </div>
 
       <div class="date-row">
-        <div class="date-badge"><strong>24</strong><span>SEPTIEMBRE</span></div>
+        <div class="date-badge"><strong>29</strong><span>OCTUBRE</span></div>
         <div class="date-info">
+          <span class="modalidad">PRESENCIAL</span>
           <strong>Taller de Constelaciones Familiares · Burjassot (Valencia)</strong>
-          <span>Jueves · De 17:00 a 21:00 h · Sala 101A, Edificio Algon, Avenida Enric Valor nº 3 (cerca de metro Empalme)</span>
+          <span>Jueves · De 17:00 a 21:00 h</span>
+          <span class="linea2">Sala 101A, Edificio Algon, Avenida Enric Valor nº 3, Burjassot · cerca de metro Empalme</span>
         </div>
-        <a class="btn" href="https://wa.me/34637557030?text=Hola%20Ana%2C%20quiero%20reservar%20plaza%20en%20el%20taller%20del%2024%20de%20septiembre.">Reservar plaza</a>
+        <a class="btn" href="reserva-taller.html" target="_blank" rel="noopener">Reservar plaza</a>
       </div>
 
-      <!-- Ejemplo de fila para un nuevo taller de septiembre (duplica y edita):
       <div class="date-row">
-        <div class="date-badge"><strong>[XX]</strong><span>SEPTIEMBRE</span></div>
+        <div class="date-badge"><strong>28</strong><span>NOVIEMBRE</span></div>
         <div class="date-info">
-          <strong>Taller de Constelaciones Familiares · [Lugar]</strong>
-          <span>[Día] · [Horario] · [Dirección]</span>
+          <span class="modalidad">PRESENCIAL</span>
+          <strong>Taller de Constelaciones Familiares · Burjassot (Valencia)</strong>
+          <span>Sábado · De 10:00 a 14:00 h</span>
+          <span class="linea2">Sala 101A, Edificio Algon, Avenida Enric Valor nº 3, Burjassot · cerca de metro Empalme</span>
         </div>
-        <a class="btn" href="https://wa.me/34637557030?text=Hola%20Ana%2C%20quiero%20reservar%20plaza%20en%20el%20pr%C3%B3ximo%20taller.">Reservar plaza</a>
+        <a class="btn" href="reserva-taller.html" target="_blank" rel="noopener">Reservar plaza</a>
       </div>
-      -->
 
-    </div>
-  </div>
-
-  <div class="mes-block">
-    <div class="mes-title">Octubre</div>
-    <div class="dates-list">
-
-      <!-- En cuanto haya fecha confirmada de octubre, sustituye el bloque "proximamente" de abajo
-           por un <div class="date-row"> normal, igual que los de septiembre. -->
-      <div class="proximamente">
-        <div class="date-badge"><strong>?</strong><span>OCTUBRE</span></div>
+      <div class="date-row">
+        <div class="date-badge"><strong>17</strong><span>DICIEMBRE</span></div>
         <div class="date-info">
-          <strong>Próximamente</strong>
-          <span>Aún no hay fecha cerrada para octubre, pero seguramente habrá un nuevo taller. Escríbeme para que te avise en cuanto se confirme.</span>
+          <span class="modalidad">PRESENCIAL</span>
+          <strong>Taller de Constelaciones Familiares · Burjassot (Valencia)</strong>
+          <span>Jueves · De 17:00 a 21:00 h</span>
+          <span class="linea2">Sala 101A, Edificio Algon, Avenida Enric Valor nº 3, Burjassot · cerca de metro Empalme</span>
         </div>
-        <a class="btn btn-outline" href="https://wa.me/34637557030?text=Hola%20Ana%2C%20quiero%20que%20me%20avises%20cuando%20cierres%20las%20pr%C3%B3ximas%20fechas%20de%20talleres.">Avísame de la próxima fecha</a>
+        <a class="btn" href="reserva-taller.html" target="_blank" rel="noopener">Reservar plaza</a>
       </div>
 
     </div>
@@ -134,10 +148,18 @@
       <h3>Empieza hoy mismo, por tu cuenta</h3>
       <p>Descarga gratis "7 preguntas para mirar lo que estás viviendo desde otro lugar" y da el primer paso ahora, sin esperar a la próxima fecha.</p>
     </div>
-    <a class="btn" href="guia/7-preguntas-guia-ana-consteladora.pdf" target="_blank">Descargar guía gratis</a>
+    <a class="btn" href="recursos.html" target="_blank" rel="noopener">Descargar guía gratis</a>
   </div>
 
-  <p class="nota">¿No ves fechas que te encajen? Escríbeme igualmente — a veces hay plazas de última hora o puedo avisarte en cuanto se abra una nueva convocatoria.</p>
+  <div class="nota-cta">
+    <p class="nota">Si ninguna de estas fechas se ajusta a tu disponibilidad, o quieres consultarme algo antes de reservar, escríbeme por WhatsApp.</p>
+    <a class="btn btn-outline" href="https://wa.me/34637557030?text=Hola%20Ana%2C%20quiero%20consultarte%20sobre%20los%20talleres%20de%20constelaciones.">Consultar por WhatsApp</a>
+  </div>
+
+  <!-- Cuando alguna de estas fechas ya haya pasado, muévela aquí abajo,
+       en un bloque <div class="mes-block"> con título "Talleres ya realizados",
+       usando date-row con la clase "pasado" y la etiqueta <span class="estado-pasado">Ya realizado</span>. -->
+
 </div>
 <footer>Ana Ballester García · Constelaciones familiares · <a href="https://wa.me/34637557030">WhatsApp 637 55 70 30</a></footer>
 </body>

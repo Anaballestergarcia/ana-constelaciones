@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reserva tu plaza | Ana Ballester · Constelaciones Familiares</title>
+<meta name="description" content="Reserva tu plaza en el próximo taller de constelaciones familiares con Ana Ballester, en Burjassot (Valencia).">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --verde:#005B4C; --menta:#6FBA9F; --rosa:#C08A8B; --crema:#E9DDD5; --carbon:#595857; --hueso:#FAF7F3; --linea:#DDD3C8;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Jost',sans-serif; color:var(--carbon); background:var(--hueso); line-height:1.62; -webkit-font-smoothing:antialiased;}
+  h1,h2,h3,h4{font-family:'Cormorant Garamond',serif; font-weight:500; color:var(--verde); line-height:1.18;}
+  a{color:inherit; text-decoration:none;}
+  .wrap{max-width:1180px; margin:0 auto; padding:0 32px;}
+  img{max-width:100%; display:block;}
+
+  header{position:sticky; top:0; z-index:50; background:var(--hueso); border-bottom:1px solid var(--linea);}
+  .nav-inner{display:flex; align-items:center; justify-content:space-between; padding:18px 32px; max-width:1180px; margin:0 auto;}
+  .brand-name{font-family:'Cormorant Garamond',serif; font-size:1.5rem; color:var(--verde); font-style:italic;}
+  .brand-tag{font-size:0.7rem; letter-spacing:0.08em; color:var(--rosa); margin-top:2px;}
+  nav ul{list-style:none; display:flex; gap:28px; align-items:center;}
+  nav a.navlink{font-size:0.95rem;}
+  nav a.navlink:hover{color:var(--verde);}
+  .btn{display:inline-block; padding:12px 26px; border-radius:100px; font-size:0.92rem; transition:opacity .2s ease;}
+  .btn-primary{background:var(--rosa); color:#fff;}
+  .btn-primary:hover{opacity:0.88;}
+  .btn-outline{background:transparent; border:1px solid var(--verde); color:var(--verde);}
+  .btn-outline:hover{background:var(--verde); color:#fff;}
+  .menu-btn{display:none; background:none; border:0; font-size:1.6rem; color:var(--verde); cursor:pointer;}
+  #mobileMenu{display:none;}
+  @media (max-width:900px){
+    nav#desktopNav{display:none;}
+    .menu-btn{display:block;}
+    #mobileMenu.open{display:block; background:var(--hueso); border-top:1px solid var(--linea); padding:20px 32px 28px;}
+    #mobileMenu ul{list-style:none; display:flex; flex-direction:column; gap:18px;}
+    #mobileMenu .btn{margin-top:8px; text-align:center;}
+  }
+
+  section{padding:0;}
+  .section-hueso{background:var(--hueso);}
+  .eyebrow{font-size:0.78rem; letter-spacing:0.08em; color:var(--verde); font-weight:500; margin-bottom:18px;}
+
+  .lm{display:grid; grid-template-columns:1.2fr 0.8fr; gap:40px; align-items:center; background:#fff; border-radius:20px; padding:44px; border:1px solid var(--linea);}
+  @media (max-width:860px){.lm{grid-template-columns:1fr;}}
+  .lm-visual{background:linear-gradient(160deg,var(--crema),#f3e6e0); border-radius:16px; padding:34px; text-align:center;}
+  .lm-visual .tag{font-size:0.72rem; letter-spacing:0.1em; color:var(--rosa); margin-bottom:10px;}
+  .lm-visual h4{font-family:'Cormorant Garamond',serif; font-size:1.38rem; color:var(--verde); font-style:italic; line-height:1.3;}
+  .lm-note{margin-top:10px; font-size:0.8rem; color:#8a8a87;}
+
+  footer{background:#0f2c26; color:rgba(255,255,255,0.75); padding:48px 0 24px; font-size:0.92rem;}
+  .foot-grid{display:grid; grid-template-columns:1.5fr 1fr; gap:40px; margin-bottom:32px;}
+  @media (max-width:600px){.foot-grid{grid-template-columns:1fr;}}
+  footer h4{color:#fff; font-family:'Jost',sans-serif; font-weight:500; margin-bottom:14px; font-size:0.95rem;}
+  footer ul{list-style:none;}
+  footer li{margin-bottom:8px;}
+  footer a:hover{color:#fff;}
+  .foot-bottom{border-top:1px solid rgba(255,255,255,0.12); padding-top:20px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; font-size:0.82rem;}
+
+  .cookie-banner{position:fixed; bottom:0; left:0; right:0; background:#0f2c26; color:#fff; padding:20px 24px; z-index:100; display:none; box-shadow:0 -6px 24px rgba(0,0,0,0.18);}
+  .cookie-banner.show{display:block;}
+  .cookie-inner{max-width:1180px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; gap:24px; flex-wrap:wrap;}
+  .cookie-inner p{font-size:0.86rem; color:rgba(255,255,255,0.85); max-width:640px;}
+  .cookie-inner a{text-decoration:underline;}
+  .cookie-actions{display:flex; gap:12px; flex-wrap:wrap; flex-shrink:0;}
+  .cookie-actions button{border:none; cursor:pointer; font-family:'Jost',sans-serif; padding:10px 22px; border-radius:100px; font-size:0.86rem;}
+  .cookie-actions .cookie-accept{background:var(--menta); color:var(--verde); font-weight:500;}
+  .cookie-actions .cookie-reject{background:transparent; border:1px solid rgba(255,255,255,0.4); color:#fff;}
+</style>
+<!-- MailerLite Universal -->
+<script>
+    (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
+    .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
+    n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+    (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+    ml('account', '2634215');
+</script>
+<!-- End MailerLite Universal -->
+</head>
+<body>
+
+<header>
+  <div class="nav-inner">
+    <div>
+      <div class="brand-name">Ana Ballester</div>
+      <div class="brand-tag">CONSTELACIONES FAMILIARES</div>
+    </div>
+    <nav id="desktopNav">
+      <ul>
+        <li><a class="navlink" href="index.html#sesiones">Sesiones</a></li>
+        <li><a class="navlink" href="index.html#talleres">Talleres</a></li>
+        <li><a class="navlink" href="index.html#enfoque">Mi forma de acompañar</a></li>
+        <li><a class="navlink" href="index.html#sobre-mi">Sobre mí</a></li>
+        <li><a class="btn btn-primary" href="index.html#contacto">Solicitar información</a></li>
+      </ul>
+    </nav>
+    <button class="menu-btn" id="menuBtn" aria-label="Abrir menú">☰</button>
+  </div>
+  <div id="mobileMenu">
+    <ul>
+      <li><a class="navlink" href="index.html#sesiones">Sesiones</a></li>
+      <li><a class="navlink" href="index.html#talleres">Talleres</a></li>
+      <li><a class="navlink" href="index.html#enfoque">Mi forma de acompañar</a></li>
+      <li><a class="navlink" href="index.html#sobre-mi">Sobre mí</a></li>
+      <li><a class="btn btn-primary" href="index.html#contacto">Solicitar información</a></li>
+    </ul>
+  </div>
+</header>
+
+<section class="section-hueso" style="padding-top:64px; padding-bottom:64px;">
+  <div class="wrap" style="max-width:900px;">
+    <div class="eyebrow" style="text-align:center;">TALLERES DE CONSTELACIONES</div>
+    <h1 style="text-align:center; font-size:clamp(2rem,4vw,2.8rem); font-style:italic; margin-bottom:18px;">Reserva tu plaza</h1>
+    <p style="text-align:center; max-width:60ch; margin:0 auto; color:#4a4948; font-size:1.02rem;">Completa tus datos para reservar tu plaza en el próximo taller de constelaciones familiares. Consulta las fechas disponibles en el <a href="calendario.html" style="color:var(--verde); text-decoration:underline;" target="_blank" rel="noopener">calendario</a> antes de registrarte.</p>
+
+    <div class="lm" style="margin-top:48px;">
+      <div>
+        <div class="eyebrow">COMPLETA TUS DATOS</div>
+        <div class="ml-embedded" data-form="B8ZQWC"></div>
+        <p class="lm-note">Al reservar recibirás también, en tu email, la guía "7 preguntas para mirar lo que estás viviendo desde otro lugar". Puedes darte de baja cuando quieras.</p>
+        <p style="margin-top:18px; font-size:0.8rem; color:#8a8a87;">Ana Ballester García es la responsable de tus datos; MailerLite los trata como encargada del envío. Puedes ejercer tus derechos escribiendo a <a href="mailto:contacto@anaballestergarcia.com" style="text-decoration:underline;">contacto@anaballestergarcia.com</a> — más info en la <a href="legal/privacidad.html" style="text-decoration:underline;">política de privacidad</a>.</p>
+      </div>
+      <div class="lm-visual">
+        <div class="tag">PLAZAS LIMITADAS</div>
+        <h4>Constelaciones Familiares</h4>
+        <p style="margin-top:8px; font-size:0.9rem; color:#4a4948;">Encuentros grupales presenciales en Burjassot (Valencia)</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h4 style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.3rem;">Ana Ballester</h4>
+        <p style="margin-top:8px; max-width:36ch; color:rgba(255,255,255,0.65);">Constelaciones familiares y acompañamiento sistémico. Valencia.</p>
+      </div>
+      <div>
+        <h4>Enlaces</h4>
+        <ul>
+          <li><a href="index.html#sesiones">Sesiones</a></li>
+          <li><a href="calendario.html">Calendario de talleres</a></li>
+          <li><a href="https://anaballestergarcia.com">Mediación Ballester</a></li>
+          <li><a href="legal/aviso-legal.html">Aviso legal</a></li>
+          <li><a href="legal/privacidad.html">Privacidad</a></li>
+          <li><a href="legal/cookies.html">Cookies</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Ana Ballester García</span>
+      <span>Valencia</span>
+    </div>
+  </div>
+</footer>
+
+<div class="cookie-banner" id="cookieBanner">
+  <div class="cookie-inner">
+    <p>Usamos cookies propias y de terceros para el funcionamiento de la web y para analizar la navegación. Puedes aceptarlas, rechazarlas o consultar más información en nuestra <a href="legal/cookies.html">política de cookies</a>.</p>
+    <div class="cookie-actions">
+      <button class="cookie-reject" id="cookieReject">Rechazar</button>
+      <button class="cookie-accept" id="cookieAccept">Aceptar</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+  document.querySelectorAll('#mobileMenu a').forEach(a=>{
+    a.addEventListener('click', ()=> mobileMenu.classList.remove('open'));
+  });
+
+  (function(){
+    var banner = document.getElementById('cookieBanner');
+    var consent = localStorage.getItem('cookieConsent');
+    if(!consent){ banner.classList.add('show'); }
+    document.getElementById('cookieAccept').addEventListener('click', function(){
+      localStorage.setItem('cookieConsent', 'accepted');
+      banner.classList.remove('show');
+    });
+    document.getElementById('cookieReject').addEventListener('click', function(){
+      localStorage.setItem('cookieConsent', 'rejected');
+      banner.classList.remove('show');
+    });
+  })();
+</script>
+</body>
+</html>
